@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Logistics</string>
+    <string name="title_activity_home">home</string>
+    <string name="title_activity_bookings">Bookings</string>
+</resources>
