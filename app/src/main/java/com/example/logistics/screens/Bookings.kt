@@ -1,9 +1,6 @@
 package com.example.logistics.screens
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,36 +12,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.logistics.TabItem
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
-
-class MainActivity : ComponentActivity() {
-    @ExperimentalMaterialApi
-    @ExperimentalPagerApi
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-
-            MainScreen()
-
-        }
-    }
-}
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @ExperimentalMaterialApi
 @ExperimentalPagerApi
 @Composable
-fun MainScreen(){
+fun Booking(){
 
     val tabs = listOf(
-        TabItem.Homes,
-        TabItem.Profile,
-        TabItem.Settings,
+        TabItem.Bookings,
+        TabItem.BookedItems,
+        TabItem.Client,
     )
 
     val pagerState = rememberPagerState(pageCount = tabs.size)
@@ -64,8 +47,8 @@ fun MainScreen(){
 fun TopBar(){
 
     TopAppBar(
-        title = { Text(text = "Tabs", fontSize = 18.sp) },
-        backgroundColor = Color.Green,
+        title = { Text(text = "Consignments", fontSize = 20.sp) },
+        backgroundColor = Color.Cyan,
         contentColor = Color.Black
     )
 
@@ -79,7 +62,7 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState){
     val scope = rememberCoroutineScope()
     TabRow(
         selectedTabIndex = pagerState.currentPage,
-        backgroundColor = Color.Green,
+        backgroundColor = Color.LightGray,
         contentColor = Color.Black,
         indicator = { tabPositions ->
             TabRowDefaults.Indicator(
@@ -89,8 +72,7 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState){
     ) {
         tabs.forEachIndexed{ index, tab ->
 
-            LeadingIconTab(
-                icon = { Icon(painter = painterResource(id = tab.icon), contentDescription = "") },
+            Tab(
                 text = { Text(text = tab.title) },
                 selected = pagerState.currentPage == index,
                 onClick = {
@@ -99,6 +81,7 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState){
                     }
                 },
             )
+
         }
     }
 }
@@ -112,7 +95,7 @@ fun TabsContent(tabs: List<TabItem>, pagerState: PagerState){
 }
 
 @Composable
-fun HomeScreen(){
+fun BookingsScreen(){
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -130,7 +113,7 @@ fun HomeScreen(){
 }
 
 @Composable
-fun ProfileScreen(){
+fun BookedItemScreen(){
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -148,7 +131,7 @@ fun ProfileScreen(){
 }
 
 @Composable
-fun SettingsScreen(){
+fun ClientScreen(){
 
     Column(
         modifier = Modifier.fillMaxSize(),
