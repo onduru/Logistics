@@ -1,4 +1,4 @@
-package com.example.logistics.ui.theme
+package com.example.logistics.screens.theme
 
 import android.app.Activity
 import android.os.Build

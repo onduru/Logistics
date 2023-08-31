@@ -12,7 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.logistics.navcontroller.SetupNavGraph
 import com.example.logistics.screens.Homepage
 
-import com.example.logistics.ui.theme.LogisticsTheme
+import com.example.logistics.screens.theme.LogisticsTheme
 
 class MainActivity : ComponentActivity() {
     lateinit var navController : NavHostController

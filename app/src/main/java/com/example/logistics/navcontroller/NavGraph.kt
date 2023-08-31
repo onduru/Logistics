@@ -1,13 +1,16 @@
 package com.example.logistics.navcontroller
 
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.logistics.screens.Bookings
 import com.example.logistics.screens.Homepage
+import com.example.logistics.screens.MainScreen
+import com.google.accompanist.pager.ExperimentalPagerApi
 
+@OptIn(ExperimentalMaterialApi::class, ExperimentalPagerApi::class)
 @Composable
 fun SetupNavGraph(
 
@@ -27,7 +30,8 @@ fun SetupNavGraph(
             composable(
                 route = Screen.Booking.route
             ) {
-                Bookings()
+              //  Bookings()
+                MainScreen()
             }
 
         }
