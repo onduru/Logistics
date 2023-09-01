@@ -22,7 +22,7 @@ fun AddClient() {
             .fillMaxSize()
             .padding(50.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+        verticalArrangement = Arrangement.spacedBy(2.dp)
     ) {
         TextField(
             value = country,
