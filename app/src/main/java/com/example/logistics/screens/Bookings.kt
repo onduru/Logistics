@@ -23,8 +23,11 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
 import com.example.logistics.TabItem
+import com.example.logistics.navcontroller.Screen
 import com.google.accompanist.pager.*
+
 import kotlinx.coroutines.launch
 
 
@@ -38,6 +41,7 @@ fun Booking(){
         TabItem.Bookings,
         TabItem.BookedItems,
         TabItem.Client,
+        TabItem.AddClient,
     )
 
     val pagerState = rememberPagerState(pageCount = tabs.size)
@@ -131,12 +135,31 @@ fun BookedItemScreen(){
 
 @Composable
 fun ClientScreen(){
+    val context = LocalContext.current
+
 
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(20.dp),
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.End
+        ) {
+            FloatingActionButton(
+                onClick = { Toast.makeText(context,"Click",Toast.LENGTH_SHORT).show()},
+                backgroundColor = Color.Red,
+                contentColor = Color.White
+            ) {
+                Icon(Icons.Filled.Add, "")
+
+            }
+
+        }
     }
 
 }
@@ -146,7 +169,7 @@ fun ClientScreen(){
 fun displayList() {
     val languages = listOf(
         "C++", "C", "C#", "Java", "Kotlin", "Dart", "Python", "Javascript", "SpringBoot",
-        "XML", "Dart", "Node JS", "Typescript", "Dot Net", "GoLang", "MongoDb",
+        "XML", "Dart", "Node JS", "Typescript", "Dot Net", "GoLang", "MongoDb" ,"Saudi",
     )
     Column(
         modifier = Modifier
